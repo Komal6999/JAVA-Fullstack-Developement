@@ -1,4 +1,4 @@
-package com.company.regex;
+package com.company.regex.email;
 
 // Java program to check if an email address
 // is valid using Regex.
