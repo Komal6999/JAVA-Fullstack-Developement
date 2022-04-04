@@ -1,0 +1,26 @@
+<h1> Order Details </h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of products | async" class="container-fluid">
+        <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.description}}</td>
+            Enter No. of Products: <input #n type="number" name="n"><br>
+            <button (click)=tprice(p.price,n.valueAsNumber)>Click here to finalise Booking</button>
+        </tr>
+    </tbody>
+</table>
+
+    
+
+
+
+

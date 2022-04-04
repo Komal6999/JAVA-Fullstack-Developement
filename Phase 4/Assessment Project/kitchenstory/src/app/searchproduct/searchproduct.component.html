@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Search Product</h2>
+                <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Enter Product Name:</label>
+                        <input type="text" placeholder="Product Name" [(ngModel)]="product.name" formControlName="name"
+                            class="form-control" [ngClass]="{'is-invalid':submitted && f['name'].errors}">
+
+                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                            <div *ngIf="f['name'].errors['required']" style="color: red;">
+                                Required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+<h1>List of Products</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of pro" class="container-fluid">
+        <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.description}}</td>
+            <td> <button routerLink="purc" (click)=showpurchase(p.id)>Purchase</button> </td>
+        </tr>
+    </tbody>
+</table>
+
+<router-outlet></router-outlet>
